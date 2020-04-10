@@ -1,0 +1,34 @@
+body {
+    background: lightblue;
+    text-align: center;
+}
+
+.wrapper {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+img {
+    /*transform: translateX(200px) translateY(200px); /*translate as separated funcs or in one */
+    /*transform: scale(1, 0.5);*/
+    /*transform: rotateZ(-90deg) translateY(200px); /* axis center is moving*/
+}
+
+.circle {
+    width: 100px;
+    padding: 50px 0;
+    margin: 60px auto;
+    background: pink;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer; /*type of displayed mouse cursor above element */
+    line-height: 0; /*text has no height - so padding is easy to set */
+    transition: background 1s, transform 1s 1s linear; /*prop for background change effect; second: prop for attached transform (p1: transform time, p2: delay, p3: the way) */
+    
+}
+
+.circle:hover {
+    background: salmon;
+    transform: rotate(360deg);
+}

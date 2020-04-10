@@ -1,0 +1,116 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /*if there is sth above 100% height or width - it's cut out */
+    margin: 0;
+}
+
+.grass, .sky, .road {
+    position: relative;
+}
+
+.sky {
+    height: 40%;
+    background: skyblue;
+}
+
+.grass {
+    height: 30%;
+    background: seagreen;
+}
+
+.road {
+    height: 30%;
+    background: dimgray;
+    box-sizing: border-box;
+    border-top: 10px solid grey;
+    border-bottom: 10px solid grey;
+    width: 100%;
+}
+
+.lines {
+    box-sizing: border-box;
+    border: 5px dashed white;
+    height: 0px;
+    width: 100%;
+    position: absolute;
+    top: 45%; /*way to do layers and 'padding' */
+}
+
+/* elements to animate */
+
+.mario {
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    animation: drive 3s both infinite linear,
+                jump 3s linear infinite;
+    /*animation-name: drive; /*animation keyframes name */
+    /*animation-duration: 3s; /*animation time */
+    /*animation-fill-mode: both; /*forwards - animation stays at end; backwards - animation start in 'from' place without jump */
+    /*animation-iteration-count: infinite; /*repeating the animation - infinite or number */
+    /*animation-delay: 2s;*/
+    /*animation-timing-function: linear;*/
+    /*cubic-bezier.com*/
+}
+
+.luigi {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    animation-name: drive;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /*animation-direction: reverse; /*alternate -> 1->2, 2->1, 1->2*/
+}
+
+.stone {
+    position: absolute;
+    top: 75px;
+    left: 390px;
+    height: 30px;
+    width: 30px;
+}
+
+.cloud {
+    position: absolute;
+}
+
+.cloud:nth-child(1){
+    width: 200px;
+    top: 120px;
+    opacity: 0.5;
+    animation: wind 80s linear infinite reverse;
+    /*name, duration, timing way, repeat, how  - can mix attributes, but first time has to be duration, second delay*/
+}
+
+.cloud:nth-child(2){
+    width: 300px;
+    top: 0;
+    animation: wind 50s linear infinite reverse;
+}
+
+
+/*keyframes */
+
+@keyframes drive {
+    from{transform: translateX(-200px);} /*default transform timing is ease */
+    to{transform: translateX(1000px);}
+}
+
+@keyframes wind {
+    from{left: -300px}
+    to{left: 100%}
+}
+
+@keyframes jump {
+    0%{top: -40px}
+    37%{top: -40px}
+    42%{top: -80px}
+    47%{top: -100px}
+    52%{top: -80px}
+    57%{top: -40px}
+    100%{top: -40px}
+}
